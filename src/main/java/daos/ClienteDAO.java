@@ -4,7 +4,7 @@
  */
 package daos;
 
-import models.Produto;
+import models.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,13 +18,13 @@ import java.util.logging.Logger;
  *
  * @author giancarlomarques
  */
-public class ProdutoDAO {
+public class ClienteDAO {
 
     static String urlDB = "jdbc:mysql://localhost:3306/perfumaria";
     static String login = "root";
     static String senha = "Gon@5514";
 
-    public static boolean salvarProduto(Produto produto) {
+    public static boolean salvarCliente(Cliente cliente) {
 
         boolean salvo = false;
         Connection conexao = null;
@@ -38,21 +38,19 @@ public class ProdutoDAO {
             conexao = DriverManager.getConnection(urlDB, login, senha);
             System.out.println("Conectado");
             // 3 - preparara o comando SQL
-            comandoSQL = conexao.prepareStatement("INSERT INTO produto "
-                    + "(nomeProduto, qtdProduto, precoProduto, categoria) "
-                    + "VALUES (?, ?, ?, ?)", +PreparedStatement.RETURN_GENERATED_KEYS);
+            comandoSQL = conexao.prepareStatement("INSERT INTO cliente "
+                    + "(nomeCliente, email) "
+                    + "VALUES (?, ?)", +PreparedStatement.RETURN_GENERATED_KEYS);
 
-            comandoSQL.setString(1, produto.getNomeProduto());
-            comandoSQL.setInt(2, produto.getQtdProduto());
-            comandoSQL.setDouble(3, produto.getPrecoProduto());
-            comandoSQL.setString(4, produto.getCategoriaProduto());
+            comandoSQL.setString(1, cliente.getNome());
+            comandoSQL.setString(2, cliente.getEmail());
             int linhasAfetadas = comandoSQL.executeUpdate();
             if (linhasAfetadas > 0) {
                 rs = comandoSQL.getGeneratedKeys();
                 if (rs != null) {
                     while (rs.next()) {
                         int idGerado = rs.getInt(1);
-                        produto.setId(idGerado);
+                        cliente.setIdCliente(idGerado);
                     }
                 }
                 salvo = true;
@@ -71,11 +69,11 @@ public class ProdutoDAO {
         return salvo;
     }
 
-    public static ArrayList<Produto> listarProdutos() {
+    public static ArrayList<Cliente> listarClientes() {
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs;
-        ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+        ArrayList<Cliente> listaProdutos = new ArrayList<Cliente>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexao = DriverManager.getConnection(urlDB, login, senha);
@@ -84,12 +82,11 @@ public class ProdutoDAO {
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
-                    int idProduto = rs.getInt("idProduto");
-                    String nomeProduto = rs.getString("nomeProduto");
-                    int qtdProduto = rs.getInt("qtdProduto");
-                    long precoProduto = rs.getLong("precoProduto");
+                    int idCliente = rs.getInt("idCliente");
+                    String nomeCliente = rs.getString("nomeCliente");
+                    String email = rs.getString("email");
                     String categoria = rs.getString("categoria");
-                    Produto produto = new Produto(idProduto, nomeProduto, precoProduto, qtdProduto, categoria);
+                    Cliente produto = new Cliente(idCliente, nomeCliente, email);
                     listaProdutos.add(produto);
                 }
             }
@@ -109,7 +106,7 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
-    public static boolean atualizarProduto(Produto produto) {
+    public static boolean atualizarCliente(Cliente cliente) {
 
         boolean atualizado = false;
         Connection conexao = null;
@@ -122,9 +119,9 @@ public class ProdutoDAO {
             System.out.println("Conectado");
             comandoSQL = conexao.prepareStatement("UPDATE produto set precoProduto=?, qtdProduto=? WHERE idProduto=?");
 
-            comandoSQL.setDouble(1, produto.getPrecoProduto());
-            comandoSQL.setInt(2, produto.getQtdProduto());
-            comandoSQL.setInt(3, produto.getId());
+            comandoSQL.setString(1, cliente.getNome());
+            comandoSQL.setString(1, cliente.getEmail());
+            comandoSQL.setInt(3, cliente.getIdCliente());
 
             int linhasAfetadas = comandoSQL.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -147,7 +144,7 @@ public class ProdutoDAO {
         return atualizado;
     }
 
-    public static boolean excluirProduto(int id) {
+    public static boolean excluirCliente(int id) {
 
         boolean atualizado = false;
         Connection conexao = null;
@@ -159,7 +156,7 @@ public class ProdutoDAO {
             conexao = DriverManager.getConnection(urlDB, login, senha);
             System.out.println("Conectado");
             comandoSQL = conexao.prepareStatement(
-                    "DELETE FROM produto WHERE idProduto = ?");
+                    "DELETE FROM cliente WHERE idCliente = ?");
 
             comandoSQL.setInt(1, id);
 

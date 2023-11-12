@@ -15,12 +15,12 @@ import models.Produtos;
  *
  * @author giancarintlomarques
  */
-public class TelaProdutos extends javax.swing.JFrame {
+public class TelaListarProdutos extends javax.swing.JFrame {
 
     /**
      * Creates new form telaProdutos
      */
-    public TelaProdutos() {
+    public TelaListarProdutos() {
         initComponents();
 
     }
@@ -48,12 +48,10 @@ public class TelaProdutos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(219, 182, 238));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jScrollPane1.setForeground(new java.awt.Color(102, 255, 0));
 
         jTable1.setBackground(new java.awt.Color(219, 182, 238));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -121,7 +119,6 @@ public class TelaProdutos extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("<html>\nDigite o cod para excluir\n</html>");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -251,14 +248,22 @@ public class TelaProdutos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -271,7 +276,7 @@ public class TelaProdutos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaProdutos().setVisible(true);
+                new TelaListarProdutos().setVisible(true);
                 Produtos produtos = new Produtos();
                 produtos.mostrarProdutos();
             }

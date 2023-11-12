@@ -33,9 +33,11 @@ public class viewAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnCadastrarProduto = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnListarProduto = new javax.swing.JButton();
+        btnListarCliente = new javax.swing.JButton();
+        btnCadastrarCliente = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -51,12 +53,10 @@ public class viewAdmin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(219, 182, 238));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Cadastrar Produto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarProduto.setText("Cadastrar Produto");
+        btnCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarProdutoActionPerformed(evt);
             }
         });
 
@@ -64,19 +64,17 @@ public class viewAdmin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+            .addComponent(btnCadastrarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(btnCadastrarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Listar Produtos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnListarProduto.setText("Listar Produtos");
+        btnListarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnListarProdutoActionPerformed(evt);
             }
         });
 
@@ -84,12 +82,26 @@ public class viewAdmin extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+            .addComponent(btnListarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(btnListarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
+
+        btnListarCliente.setText("Listar clientes");
+        btnListarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarClienteActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarCliente.setText("Cadastrar cliente");
+        btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,8 +111,15 @@ public class viewAdmin extends javax.swing.JFrame {
                 .addGap(152, 152, 152)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(208, 208, 208)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnListarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(142, 142, 142))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(162, 162, 162)
+                    .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(604, 604, 604)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +128,14 @@ public class viewAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(422, 422, 422))
+                .addGap(188, 188, 188)
+                .addComponent(btnListarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addGap(134, 134, 134))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(382, 382, 382)
+                    .addComponent(btnCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addGap(134, 134, 134)))
         );
 
         jMenu1.setText("Produtos");
@@ -185,7 +211,7 @@ public class viewAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaProdutos telaProdutos = new TelaProdutos();
+        TelaListarProdutos telaProdutos = new TelaListarProdutos();
         telaProdutos.setVisible(true); 
         telaProdutos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
        
@@ -218,20 +244,30 @@ public class viewAdmin extends javax.swing.JFrame {
         exibicao.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProdutoActionPerformed
      
         TelaCadastrarProduto telaCadProd = new TelaCadastrarProduto();
         telaCadProd.setVisible(true);    
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastrarProdutoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnListarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProdutoActionPerformed
         // TODO add your handling code here:
         
-        TelaProdutos telaProdutos = new TelaProdutos();
+        TelaListarProdutos telaProdutos = new TelaListarProdutos();
         telaProdutos.setVisible(true); 
         telaProdutos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnListarProdutoActionPerformed
+
+    private void btnListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarClienteActionPerformed
+        TelaListarClientes listaCliente = new TelaListarClientes();
+        listaCliente.setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_btnListarClienteActionPerformed
+
+    private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
+        TelaCadastrarCliente telaCadCliente = new TelaCadastrarCliente();
+        telaCadCliente.setVisible(true);          // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,8 +306,10 @@ public class viewAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCadastrarCliente;
+    private javax.swing.JButton btnCadastrarProduto;
+    private javax.swing.JButton btnListarCliente;
+    private javax.swing.JButton btnListarProduto;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

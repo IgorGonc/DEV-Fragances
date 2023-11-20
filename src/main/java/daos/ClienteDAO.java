@@ -34,9 +34,12 @@ public class ClienteDAO {
         try {
             // 1 - idenfiicar o Driver
             Class.forName("com.mysql.cj.jdbc.Driver");
+            
             // 2 - abrir conexão com BD
+            
             conexao = DriverManager.getConnection(urlDB, login, senha);
             System.out.println("Conectado");
+            
             // 3 - preparara o comando SQL
             comandoSQL = conexao.prepareStatement("INSERT INTO cliente "
                     + "(nomeCliente, email) "
@@ -56,14 +59,14 @@ public class ClienteDAO {
                 salvo = true;
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 conexao.close();
             } catch (SQLException ex) {
-                Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return salvo;
@@ -73,21 +76,20 @@ public class ClienteDAO {
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs;
-        ArrayList<Cliente> listaProdutos = new ArrayList<Cliente>();
+        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexao = DriverManager.getConnection(urlDB, login, senha);
             System.out.println("Conectado");
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente");
             rs = comandoSQL.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
                     int idCliente = rs.getInt("idCliente");
                     String nomeCliente = rs.getString("nomeCliente");
                     String email = rs.getString("email");
-                    String categoria = rs.getString("categoria");
-                    Cliente produto = new Cliente(idCliente, nomeCliente, email);
-                    listaProdutos.add(produto);
+                    Cliente cliente = new Cliente(idCliente, nomeCliente, email);
+                    listaClientes.add(cliente);
                 }
             }
 
@@ -103,7 +105,7 @@ public class ClienteDAO {
             }
         }
 
-        return listaProdutos;
+        return listaClientes;
     }
 
     public static boolean atualizarCliente(Cliente cliente) {
@@ -117,7 +119,7 @@ public class ClienteDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexao = DriverManager.getConnection(urlDB, login, senha);
             System.out.println("Conectado");
-            comandoSQL = conexao.prepareStatement("UPDATE produto set precoProduto=?, qtdProduto=? WHERE idProduto=?");
+            comandoSQL = conexao.prepareStatement("UPDATE cliente set nome=?, email=? WHERE idCliente=?");
 
             comandoSQL.setString(1, cliente.getNome());
             comandoSQL.setString(1, cliente.getEmail());

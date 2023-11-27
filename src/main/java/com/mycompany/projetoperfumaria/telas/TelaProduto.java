@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package com.mycompany.projetoperfumaria.telas;
 
-import daos.ProdutoDAO;
+import com.mycompany.projetoperfumaria.daos.ProdutoDAO;
 import javax.swing.JOptionPane;
-import models.Produto;
+import com.mycompany.projetoperfumaria.models.Produto;
 
 /**
  *
@@ -59,18 +59,14 @@ public class TelaProduto extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(219, 182, 238));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         txtNomeProduto.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        txtNomeProduto.setForeground(new java.awt.Color(0, 0, 0));
         txtNomeProduto.setText("Nome do Produto");
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Preço do Produto");
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Quantidade do Produto:");
 
         btnCancelar.setText("Cancelar");

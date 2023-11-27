@@ -2,8 +2,8 @@
 package com.mycompany.projetoperfumaria;
 
 
-import models.Cliente;
-import telas.TelaInicio;
+import com.mycompany.projetoperfumaria.models.Cliente;
+import com.mycompany.projetoperfumaria.telas.TelaInicio;
 
 
 public class ProjetoPerfumaria {

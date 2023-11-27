@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package com.mycompany.projetoperfumaria.telas;
 
 import javax.swing.JFrame;
 
@@ -30,7 +30,6 @@ public class TelaInicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnTelaAdmin = new javax.swing.JButton();
-        btnTelaEstoque = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(219, 182, 238));
@@ -43,22 +42,11 @@ public class TelaInicio extends javax.swing.JFrame {
         btnTelaAdmin.setBackground(new java.awt.Color(27, 0, 75));
         btnTelaAdmin.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
         btnTelaAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        btnTelaAdmin.setText("Acessar como Administrador");
+        btnTelaAdmin.setText("Acessar sistema");
         btnTelaAdmin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnTelaAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTelaAdminActionPerformed(evt);
-            }
-        });
-
-        btnTelaEstoque.setBackground(new java.awt.Color(27, 0, 75));
-        btnTelaEstoque.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
-        btnTelaEstoque.setForeground(new java.awt.Color(255, 255, 255));
-        btnTelaEstoque.setText("Acessar estoque disponivel");
-        btnTelaEstoque.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnTelaEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTelaEstoqueActionPerformed(evt);
             }
         });
 
@@ -67,20 +55,16 @@ public class TelaInicio extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnTelaAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTelaEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE))
-                .addGap(245, 245, 245))
+                .addGap(242, 242, 242)
+                .addComponent(btnTelaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(259, 259, 259)
                 .addComponent(btnTelaAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btnTelaEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,12 +91,6 @@ public class TelaInicio extends javax.swing.JFrame {
         newFrame.setVisible(true);
         
     }//GEN-LAST:event_btnTelaAdminActionPerformed
-
-    private void btnTelaEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTelaEstoqueActionPerformed
-        viewEstoque telaEstoque = new viewEstoque();
-        dispose();
-        telaEstoque.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTelaEstoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,7 +129,6 @@ public class TelaInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTelaAdmin;
-    private javax.swing.JButton btnTelaEstoque;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

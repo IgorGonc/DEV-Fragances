@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package models;
+package com.mycompany.projetoperfumaria.models;
 
 /**
  *
@@ -18,6 +18,13 @@ public class Produto {
 
     public Produto() {
     }
+
+    public Produto(int id, int qtdProduto) {
+        this.id = id;
+        this.qtdProduto = qtdProduto;
+    }
+    
+    
 
     public Produto(int id, String nome, long preco, int qtd, String categoria) {
         this.id = id;

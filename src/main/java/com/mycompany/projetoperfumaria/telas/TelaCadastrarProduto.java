@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package com.mycompany.projetoperfumaria.telas;
 
-import daos.ProdutoDAO;
+import com.mycompany.projetoperfumaria.daos.ProdutoDAO;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import models.Produto;
+import com.mycompany.projetoperfumaria.models.Produto;
 
 /**
  *
@@ -49,21 +49,17 @@ public class TelaCadastrarProduto extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(219, 182, 238));
 
         jLabel1.setFont(new java.awt.Font("Gabriola", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cadastrar Produto");
 
         lblNomeProduto.setFont(new java.awt.Font("Gabriola", 0, 14)); // NOI18N
-        lblNomeProduto.setForeground(new java.awt.Color(0, 0, 0));
         lblNomeProduto.setText("Nome do Produto:");
 
         txtPrecoProduto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         jLabel4.setFont(new java.awt.Font("Gabriola", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Quantidade do Produto:");
 
         jLabel5.setFont(new java.awt.Font("Gabriola", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Preço do Produto:");
 
         btnCadastrarProduto.setFont(new java.awt.Font("Liberation Sans", 0, 12)); // NOI18N
@@ -84,7 +80,12 @@ public class TelaCadastrarProduto extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        txtNomeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeProdutoActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Categoria do Produto:");
 
         txtCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Corpo e Banho", "Maquiagem", "Cabelos", "Skincare", " " }));
@@ -224,6 +225,10 @@ public class TelaCadastrarProduto extends javax.swing.JFrame {
     private void txtCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCategoriasActionPerformed
+
+    private void txtNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeProdutoActionPerformed
 
     
    

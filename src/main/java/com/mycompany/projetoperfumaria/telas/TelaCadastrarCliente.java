@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package telas;
+package com.mycompany.projetoperfumaria.telas;
 import java.util.*;
-import daos.ClienteDAO;
+import com.mycompany.projetoperfumaria.daos.ClienteDAO;
 import javax.swing.JOptionPane;
-import models.Cliente;
+import com.mycompany.projetoperfumaria.models.Cliente;
 
 /**
  *
@@ -142,7 +142,7 @@ public class TelaCadastrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarProdutoActionPerformed
-
+        
         try {
             String nome = txtNomeCliente.getText();
             

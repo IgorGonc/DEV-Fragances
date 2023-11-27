@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package daos;
+package com.mycompany.projetoperfumaria.daos;
 
-import models.Produto;
+import com.mycompany.projetoperfumaria.models.Produto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -183,4 +184,52 @@ public class ProdutoDAO {
 
         return atualizado;
     }
-}
+    
+ public static ArrayList<Produto> listagemProdutos(){
+        Connection conexao = null;
+        PreparedStatement comandoSQL = null;
+        ResultSet rs = null;
+        ArrayList<Produto> listadeProdutos = new ArrayList<Produto>();
+        
+        try {
+         conexao = DriverManager.getConnection(urlDB, login, senha);
+                    comandoSQL = conexao.prepareStatement(
+                    "DELETE FROM produto WHERE idProduto = ?");{
+        while (rs.next()) {
+        Produto produto = new Produto();
+        produto.setId(rs.getInt("id"));
+        produto.setNomeProduto(rs.getString("nome"));
+        listadeProdutos.add(produto);
+    }
+        }
+         
+     } catch (Exception e) {
+         
+     }
+        return null;
+ } 
+ 
+     public void decrementarQuantidadeDisponivel(int produtoId, int quantidade) {
+        try (Connection conexao = DriverManager.getConnection(urlDB, login, senha);) {
+            String sql = "UPDATE produtos SET qtdProduto = qtdProduto - ? WHERE idProduto = ?";
+            try (PreparedStatement preparedStatement = conexao.prepareStatement(sql)) {
+                preparedStatement.setInt(1, produtoId);
+                preparedStatement.setInt(2, quantidade);
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Trate a exceção de maneira adequada
+        }
+    }
+     
+    
+        
+     }
+
+
+ 
+
+    
+   
+
